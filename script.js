@@ -1,7 +1,3 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
 $(document).ready(function () {
   var todayDate = dayjs().format("dddd, MMMM D");
   $("#currentDay").html(todayDate);
@@ -14,7 +10,7 @@ $(document).ready(function () {
     // local storage
     localStorage.setItem(time, text);
   });
-
+    // colorChange based on past, present, future for blockTime
   function colorChange() {
     var currentTime = parseInt(dayjs().format("HH"));
 
@@ -34,19 +30,17 @@ $(document).ready(function () {
   }
 
   colorChange();
-
+  // Individual blockTime 
   $("#9 .description").text(localStorage.getItem("9"));
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
+  $("#10 .description").text(localStorage.getItem("10"));
+  $("#11 .description").text(localStorage.getItem("11"));
+  $("#12 .description").text(localStorage.getItem("12"));
+  $("#13 .description").text(localStorage.getItem("13"));
+  $("#14 .description").text(localStorage.getItem("14"));
+  $("#15 .description").text(localStorage.getItem("15"));
+  $("#16 .description").text(localStorage.getItem("16"));
 
-  //Pseudocode- create eventListener for click event on the save button.
-  //What is blockTime- where do I call this function
-
-  // TODO: Add code to apply the past, present, or future class to each time
+ // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
@@ -62,6 +56,4 @@ $(document).ready(function () {
 
   // localStorage.getItem(key) to collect saved data from line 47
   // fetch and .textContent to grab data from each key and display to screen using forloop
-
-  // TODO: Add code to display the current date in the header of the page.
 });
